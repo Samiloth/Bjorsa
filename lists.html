@@ -5,19 +5,21 @@
     <script lang="javascript">
       var gender = [
         {
-        "result": "Male",
-        "value": 75
-      },
+          "result": "Male",
+          "link": "another.list",
+          "value": 75
+        },
         {
-        "result": "Female",
-        "value": 25
-      },
-      {
-        "result": "Frog",
-        "value": 45
-      }
-    ];
-
+          "result": "Female",
+          "link": "athird.list",
+          "value": 25
+        },
+        {
+          "result": "Frog",
+          "link": "alist.list",
+          "value": 45
+        }
+      ];
 
       function selectGender() {
         var sum = 0;
@@ -32,6 +34,9 @@
           current = current + value;
           if (rnd < current) {
             alert(gender[idx].result);
+            if (gender[idx].link) {
+              readData(gender[idx].link);
+            }
             break;
           }
         }
