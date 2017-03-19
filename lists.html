@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <script lang="javascript">
+      var gender = [
+        {
+          "result": "Male",
+          "link": "another.list",
+          "value": 75
+        },
+        {
+          "result": "Female",
+          "link": "athird.list",
+          "value": 25
+        },
+        {
+          "result": "Frog",
+          "link": "alist.list",
+          "value": 45
+        }
+      ];
+
+      function selectGender() {
+        var sum = 0;
+        for (idx in gender) {
+          sum = sum + gender[idx].value;
+        }
+        var rnd = Math.random() * sum;
+        console.log(rnd);
+        var current = 0;
+        for (idx in gender) {
+          var value = gender[idx].value;
+          current = current + value;
+          if (rnd < current) {
+            alert(gender[idx].result);
+            if (gender[idx].link) {
+              readData(gender[idx].link);
+            }
+            break;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form method="post" action="">
+      <p>
+      <label for="submit">Submit:</label>
+      <input type="submit" name="submit" onclick="selectGender()"/>
+      </p>
+    </form>
+  </body>
+</html>
